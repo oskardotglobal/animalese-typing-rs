@@ -1,6 +1,6 @@
 [package]
 name = "animalese-typing"
-edition = "2024"
+edition = "2021"
 version = "0.1.0"
 authors = ["Oskar Manhart <me@oskar.global>"]
 license = "MIT"
