@@ -2,11 +2,27 @@ mod ansi_us;
 mod iso_de;
 
 use crate::input::{Input, Modifier};
+use clap::ValueEnum;
 use device_query::Keycode;
 use moka::sync::Cache;
 
 pub use ansi_us::AnsiUsLayout;
 pub use iso_de::IsoDeLayout;
+
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, ValueEnum)]
+pub enum Layouts {
+    AnsiUs,
+    IsoDe,
+}
+
+impl From<Layouts> for Box<dyn Layout> {
+    fn from(value: Layouts) -> Self {
+        match value {
+            Layouts::AnsiUs => Box::new(AnsiUsLayout),
+            Layouts::IsoDe => Box::new(IsoDeLayout),
+        }
+    }
+}
 
 pub trait Layout {
     fn parse_key_chord(

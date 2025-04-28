@@ -2,7 +2,7 @@ use device_query::Keycode;
 
 pub enum Input {
     Letter(&'static str),
-    Number(usize),
+    Number(u8),
     Special(String),
 }
 

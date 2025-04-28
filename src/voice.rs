@@ -25,3 +25,19 @@ impl Display for AnimaleseVoice {
         }
     }
 }
+
+impl From<u8> for AnimaleseVoice {
+    fn from(value: u8) -> Self {
+        match value {
+            1 => Self::Female1,
+            2 => Self::Female2,
+            3 => Self::Female3,
+            4 => Self::Female4,
+            5 => Self::Male1,
+            6 => Self::Male2,
+            7 => Self::Male3,
+            8 => Self::Male4,
+            _ => unreachable!(),
+        }
+    }
+}
