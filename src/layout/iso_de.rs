@@ -43,7 +43,10 @@ impl Layout for IsoDeLayout {
             alt_gr!(Q) => special!("at"),
 
             key!(Grave) => special!("caret"),
-            key!(Comma) => special!("pound"),
+            key!(BackSlash) => special!("pound"),
+            key!(LeftBracket) => Some(Input::Letter("u")),
+            key!(Semicolon) => Some(Input::Letter("o")),
+            key!(Apostrophe) => Some(Input::Letter("a")),
 
             _ => Some(Input::from_key(keycode)),
         }
