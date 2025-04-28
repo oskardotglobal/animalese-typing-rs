@@ -1,13 +1,14 @@
 mod ansi_us;
 mod iso_de;
 
-use crate::input::{Input, Modifier};
+use crate::{
+    input::{Input, Modifier},
+    layout::{ansi_us::AnsiUsLayout, iso_de::IsoDeLayout},
+};
+
 use clap::ValueEnum;
 use device_query::Keycode;
 use moka::sync::Cache;
-
-pub use ansi_us::AnsiUsLayout;
-pub use iso_de::IsoDeLayout;
 
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, ValueEnum)]
 pub enum Layouts {
