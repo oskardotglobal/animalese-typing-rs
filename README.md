@@ -15,6 +15,26 @@ Options:
   -V, --version          Print version
 ```
 
+## NixOS module
+
+There is a NixOS module & package available in this repository.  
+To install, edit your `configuration.nix`:
+
+```nix
+# configuration.nix
+_: {
+  imports = [ (builtins.fetchTarball "https://github.com/oskardotglobal/animalese-typing-rs/archive/mistress.tar.gz") ];
+
+  programs.animalese-typing = {
+    enable = true;
+
+    # args passed to the CLI, see above
+    voice = 1;
+    layout = "ansi-us";    
+  };
+}
+```
+
 ## Credits
 
 Assets and original idea taken from https://github.com/joshxviii/animalese-typing
